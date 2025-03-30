@@ -4,7 +4,7 @@ public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
     
-    private Vector3 offset = new Vector3(20f, 2f, 36f);
+    private Vector3 offset = new Vector3(20f, 2f, 10f);
     public float RotationSpeed = 200.0f;
     public float zoomSpeed = 2.0f;
     public float minZoom = 2f;
@@ -66,7 +66,7 @@ public class FollowPlayer : MonoBehaviour
 
             yaw += mouseX;
             pitch += mouseY;
-            pitch = Mathf.Clamp(pitch, -90f, -20f);
+            pitch = Mathf.Clamp(pitch, -90f, -10f);
 
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             targetZoom -= scroll * zoomSpeed;

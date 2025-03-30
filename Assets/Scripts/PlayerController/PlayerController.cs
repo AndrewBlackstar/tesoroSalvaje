@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // Variables públicas para ajustar las fuerzas de movimiento y salto
     public float moveForce = 10f;  // Fuerza de movimiento
-    public float jumpForce = 10.0f;  // Fuerza de salto
+    public float jumpForce = 1250.0f;  // Fuerza de salto
 
     // Referencias a otros componentes y objetos en la escena
     public Transform cameraTransform;  // Cámara para orientar el movimiento
@@ -17,10 +17,14 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded; // Indica si el jugador está en el suelo
     private bool hasJumped;  // Indica si el jugador ha saltado recientemente
 
-    // Componentes de audio para efectos de sonido
-    //public AudioSource jumpAudioSource;
-    //public AudioSource landAudioSource;
-    //public AudioSource moveAudioSource;
+    private void Awake()
+    {
+        // Asegurarse de que la cámara esté asignada
+        if (cameraTransform == null)
+        {
+            cameraTransform = Camera.main.transform; // Asignar la cámara principal si no se ha asignado
+        }
+    }
 
     void Start()
     {
@@ -66,17 +70,24 @@ public class PlayerController : MonoBehaviour
         // Si el jugador presiona espacio y está en el suelo, salta
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-            hasJumped = true; // Registrar que ha saltado
-
-            // Reproducir sonido de salto si está asignado
-            /*
-            if (jumpAudioSource != null)
-            {
-                jumpAudioSource.Play();
-            }*/
+            Jump();
         }
+    }
+
+    private void Jump()
+    {
+        // Aplicar fuerza de salto al Rigidbody
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        isGrounded = false;
+        hasJumped = true; // Registrar que ha saltado
+
+        if (animatorPlayer != null)
+    {
+        animatorPlayer.SetBool("isJumping", true);
+    }
+        // Desactivar la animación de caminar al saltar
+        animatorPlayer.SetBool("isWalking", false);
+        // Desactivar la animación de correr al saltar
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -85,6 +96,11 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             hasJumped = false;
+             // Desactivar la animación de salto
+        if (animatorPlayer != null)
+        {
+            animatorPlayer.SetBool("isJumping", false);
+        }
         }
     }
 
