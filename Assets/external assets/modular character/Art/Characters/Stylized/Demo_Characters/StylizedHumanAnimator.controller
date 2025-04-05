@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!1101 &-8197225057620054040
+=======
+--- !u!1101 &-7236300489693279076
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +13,16 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
+<<<<<<< HEAD
   m_DstState: {fileID: -8064987231555530343}
+=======
+  m_DstState: {fileID: 6111314343483727637}
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
+<<<<<<< HEAD
   m_TransitionDuration: 0.11894196
   m_TransitionOffset: 0
   m_ExitTime: 0.625
@@ -276,6 +285,12 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.765625
   m_HasExitTime: 0
+=======
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.8557693
+  m_HasExitTime: 1
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -407,8 +422,12 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
+<<<<<<< HEAD
   - {fileID: 7325498836721164848}
   - {fileID: -2469784311564471547}
+=======
+  - {fileID: -7236300489693279076}
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
@@ -424,7 +443,11 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< HEAD
 --- !u!1101 &3004618653681784362
+=======
+--- !u!1101 &4495453222154631998
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,13 +456,18 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
+<<<<<<< HEAD
   m_DstState: {fileID: -6629181331827001843}
+=======
+  m_DstState: {fileID: 2851477333128728027}
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
+<<<<<<< HEAD
   m_ExitTime: 0.6590909
   m_HasExitTime: 0
   m_HasFixedDuration: 1
@@ -489,6 +517,10 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.6590909
   m_HasExitTime: 0
+=======
+  m_ExitTime: 0.765625
+  m_HasExitTime: 1
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -506,6 +538,7 @@ AnimatorStateMachine:
     m_State: {fileID: 2851477333128728027}
 <<<<<<< HEAD:Assets/external assets/modular character/Art/Characters/Stylized/Demo_Characters/StylizedHumanAnimator.controller
     m_Position: {x: 360, y: 110, z: 0}
+<<<<<<< HEAD
 =======
     m_Position: {x: 250, y: 250, z: 0}
   - serializedVersion: 1
@@ -533,6 +566,11 @@ AnimatorStateMachine:
     m_State: {fileID: 7101413842209250620}
     m_Position: {x: 830, y: 330, z: 0}
 >>>>>>> fabian:Assets/Blink/Art/Characters/Stylized/Demo_Characters/StylizedHumanAnimator.controller
+=======
+  - serializedVersion: 1
+    m_State: {fileID: 6111314343483727637}
+    m_Position: {x: 607.52966, y: -12.016357, z: 0}
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -543,18 +581,30 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 840, y: 420, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 2851477333128728027}
+<<<<<<< HEAD
 --- !u!1102 &5944118729996157212
+=======
+--- !u!1102 &6111314343483727637
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_Name: JumpUp 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1635493442172729957}
+=======
+  m_Name: WalkForwardRight
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 4495453222154631998}
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -564,12 +614,17 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
+<<<<<<< HEAD
   m_Motion: {fileID: 8521470458871766595, guid: f431314797169014584017049600a63e, type: 3}
+=======
+  m_Motion: {fileID: 705645734305967862, guid: eb0874454b91c5f43b57a378839d90d3, type: 3}
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< HEAD
 --- !u!1102 &7101413842209250620
 AnimatorState:
   serializedVersion: 6
@@ -647,3 +702,5 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+=======
+>>>>>>> 6e24128b79fd85cbd690a23c5c9c210845e56cee
