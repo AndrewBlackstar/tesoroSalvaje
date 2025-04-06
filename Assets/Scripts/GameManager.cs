@@ -62,6 +62,14 @@ public static GameManager Instance {  get; private set; }
     {
         SceneManager.LoadScene("CreditsMenu", LoadSceneMode.Additive);
     }
+    public void OpenControlsMenu()
+    {
+        SceneManager.LoadScene("ControlsMenu", LoadSceneMode.Additive);
+    }
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+    }
 }
 /*Forma de utilizar funciones en otros scripts, llamar escenas por nombres
 GameManager.instance.LoadSceneByName("Menu") */

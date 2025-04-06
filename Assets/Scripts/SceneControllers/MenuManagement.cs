@@ -52,6 +52,10 @@ public class MenuManagement : MonoBehaviour
     {
         GameManager.Instance.OpenCreditsMenu();
     }
+    public void OpenControls()
+    {
+        GameManager.Instance.OpenControlsMenu();
+    }
 
     public  void NextLevel()
     {

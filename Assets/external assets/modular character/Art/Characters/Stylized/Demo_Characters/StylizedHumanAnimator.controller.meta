@@ -1,15 +1,8 @@
 fileFormatVersion: 2
-guid: ef6403663453e6a4cb106814a81e72b4
+guid: 56de3332b3924a34183a2571b4846f64
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 0
+  mainObjectFileID: 9100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 228952
-  packageName: FREE - Modular Character - Fantasy RPG Human Male
-  packageVersion: 2.0
-  assetPath: Assets/Blink/Art/Characters/Stylized/Demo_Characters/StylizedHumanAnimator.controller
-  uploadId: 548726
