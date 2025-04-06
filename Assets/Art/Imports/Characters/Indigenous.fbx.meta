@@ -17,6 +17,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: HM_Accessories_T12
+    second: {fileID: 2100000, guid: 39ae67ede742d8c47ab9068a6d2707a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HM_Accessories_T13
+    second: {fileID: 2100000, guid: 39ae67ede742d8c47ab9068a6d2707a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: HM_Accessories_T9
     second: {fileID: 2100000, guid: 39ae67ede742d8c47ab9068a6d2707a4, type: 2}
   - first:
@@ -37,7 +47,22 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: HM_Body_T15
+    second: {fileID: 2100000, guid: a61b60ffb43586e40adaba8c9f15351a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HM_Body_T16
+    second: {fileID: 2100000, guid: a61b60ffb43586e40adaba8c9f15351a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: HM_FaceV1_T7
+    second: {fileID: 2100000, guid: 054d31690a0aa2b4ca36ab9490a41860, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HM_FaceV1_T8
     second: {fileID: 2100000, guid: 054d31690a0aa2b4ca36ab9490a41860, type: 2}
   - first:
       type: UnityEngine:Material
@@ -47,8 +72,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: HM_Indigenous_T2
+    second: {fileID: 2100000, guid: a8d5c1cc4db313340b9effb687799f16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: HM_InnerEye_T6
     second: {fileID: 2100000, guid: 1b785a40cb9ab8e42bd50b5a2ba605ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HM_InnerEye_T7
+    second: {fileID: 2100000, guid: 7726c302197b98f4ab78e0270ffc7b2f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -57,8 +92,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: HM_OuterEye_T7
+    second: {fileID: 2100000, guid: 9a99dff16321ae842a85df39fa0e9992, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: HM_V1Hair_T2
     second: {fileID: 2100000, guid: ab2bb6566402b8d43a5ec0dcf31e9479, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HM_V1Hair_T3
+    second: {fileID: 2100000, guid: ab2bb6566402b8d43a5ec0dcf31e9479, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ojos1
+    second: {fileID: 2100000, guid: 16c0734b796fe49449bb29189286157c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface1
+    second: {fileID: 2100000, guid: b80ed3b55e3f9714ca284088a1c6826e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
