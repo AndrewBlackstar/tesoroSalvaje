@@ -1,114 +1,196 @@
-using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Variables públicas para ajustar las fuerzas de movimiento y salto
-    public float moveForce = 10f;  // Fuerza de movimiento
-    public float jumpForce = 1250.0f;  // Fuerza de salto
+    [Header("Movimiento")]
+    public float moveForce = 2f;
+    public float runMultiplier = 4f;
+    public float rotationSpeed = 10f;
 
-    // Referencias a otros componentes y objetos en la escena
-    public Transform cameraTransform;  // Cámara para orientar el movimiento
-    private Rigidbody rb;  // Componente Rigidbody de la esfera
-    private Animator animatorPlayer;  // Animator del jugador
+    [Header("Salto")]
+    public float jumpForce = 200f;
 
-    // Variables de estado del jugador
-    private bool isGrounded; // Indica si el jugador está en el suelo
-    private bool hasJumped;  // Indica si el jugador ha saltado recientemente
+    [Header("Cámara")]
+    public Transform cameraTransform;
+
+    private Rigidbody rb;
+    private Animator animatorPlayer;
+
+    private bool isGrounded;
+    private Vector3 moveDirection;
+
+    // -------- Recolección y poderes --------
+    private int treasureCount = 0;
+    private List<string> activePowers = new List<string>();
 
     private void Awake()
     {
-        // Asegurarse de que la cámara esté asignada
         if (cameraTransform == null)
         {
-            cameraTransform = Camera.main.transform; // Asignar la cámara principal si no se ha asignado
+            cameraTransform = Camera.main.transform;
         }
     }
 
-    void Start()
+    private void Start()
     {
-        // Inicialización de componentes y variables
         rb = GetComponent<Rigidbody>();
-        rb.linearDamping = 5f;  // Ajuste del drag para reducir el deslizamiento
         animatorPlayer = GetComponent<Animator>();
-        
-        hasJumped = false; // Inicialmente no ha saltado
-        isGrounded = true; // Se asume que empieza en el suelo
+        isGrounded = true;
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        // Capturar entrada del jugador
+        CheckGroundStatus();
+
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
-        // Obtener las direcciones de la cámara para orientar el movimiento
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
-        forward.y = 0; // Ignorar componente vertical
+        forward.y = 0;
         right.y = 0;
         forward.Normalize();
         right.Normalize();
 
-        // Calcular la dirección de movimiento basada en la cámara
-        Vector3 moveDirection = (forward * moveZ + right * moveX).normalized;
+        moveDirection = (forward * moveZ + right * moveX).normalized;
 
-        // Aplicar velocidad directamente en el eje X y Z
-        rb.linearVelocity = new Vector3(moveDirection.x * moveForce, rb.linearVelocity.y, moveDirection.z * moveForce);
-
-        // Si hay movimiento, rotar el jugador hacia la dirección de movimiento
+        // Rotación
         if (moveDirection.magnitude > 0.1f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+            Rotation(moveDirection);
         }
 
-        // Control de animaciones del jugador
-        animatorPlayer.SetBool("isWalking", moveX != 0 || moveZ != 0);
-
-        // Si el jugador presiona espacio y está en el suelo, salta
+        // Saltos
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            Jump();
+            if (Input.GetKey(KeyCode.R))
+                RunJump();
+            else
+                NormalJump();
         }
     }
 
-    private void Jump()
+    private void FixedUpdate()
     {
-        // Aplicar fuerza de salto al Rigidbody
+        bool runInput = Input.GetKey(KeyCode.R);
+        MoveCharacter(moveDirection, runInput);
+    }
+
+    private void CheckGroundStatus()
+    {
+        float rayDistance = 1.1f;
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, rayDistance);
+
+        if (animatorPlayer != null)
+        {
+            animatorPlayer.SetBool("isJumping", !isGrounded);
+        }
+    }
+
+    private void MoveCharacter(Vector3 direction, bool isRunningInput)
+    {
+        float currentForce = moveForce;
+
+        bool isRunning = false;
+        bool isWalking = false;
+        bool isIdle = true;
+
+        if (direction.magnitude > 0.1f)
+        {
+            isIdle = false;
+
+            if (isRunningInput)
+            {
+                currentForce *= runMultiplier;
+                isRunning = true;
+            }
+            else
+            {
+                isWalking = true;
+            }
+        }
+
+        rb.linearVelocity = new Vector3(direction.x * currentForce, rb.linearVelocity.y, direction.z * currentForce);
+
+        if (animatorPlayer != null)
+        {
+            animatorPlayer.SetBool("isIdle", isIdle);
+            animatorPlayer.SetBool("isWalking", isWalking);
+            animatorPlayer.SetBool("isRunning", isRunning);
+        }
+    }
+
+    private void Rotation(Vector3 direction)
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+    }
+
+    private void NormalJump()
+    {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         isGrounded = false;
-        hasJumped = true; // Registrar que ha saltado
 
         if (animatorPlayer != null)
-    {
-        animatorPlayer.SetBool("isJumping", true);
-    }
-        // Desactivar la animación de caminar al saltar
-        animatorPlayer.SetBool("isWalking", false);
-        // Desactivar la animación de correr al saltar
+        {
+            animatorPlayer.SetBool("isJumping", true);
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void RunJump()
     {
-        if (collision.gameObject.CompareTag("Ground")) // Asegúrate de etiquetar el suelo como "Ground"
-        {
-            isGrounded = true;
-            hasJumped = false;
-             // Desactivar la animación de salto
+        rb.AddForce(Vector3.up * (jumpForce * 1.2f), ForceMode.Impulse);
+        isGrounded = false;
+
         if (animatorPlayer != null)
         {
-            animatorPlayer.SetBool("isJumping", false);
-        }
+            animatorPlayer.SetBool("isJumping", true);
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    // ----------- TESOROS Y PODERES -----------
+
+    public void AddTreasure()
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        treasureCount++;
+        Debug.Log("Tesoros recolectados: " + treasureCount);
+    }
+
+    public void ActivatePower(string powerName)
+    {
+        if (!activePowers.Contains(powerName))
         {
-            isGrounded = false;
+            activePowers.Add(powerName);
+            Debug.Log("¡Poder activado!: " + powerName);
+
+            switch (powerName)
+            {
+                case "SpeedBoost":
+                    //moveForce *= 10f;
+                    runMultiplier *= 10f;
+                    Invoke(nameof(ResetSpeed), 5f);
+                    break;
+
+                case "JumpBoost":
+                    jumpForce *= 50f;
+                    Invoke(nameof(ResetJump), 5f);
+                    break;
+
+                // Aquí puedes agregar más poderes fácilmente
+            }
         }
+    }
+
+    private void ResetSpeed()
+    {
+        moveForce /= 2f;
+        activePowers.Remove("SpeedBoost");
+    }
+
+    private void ResetJump()
+    {
+        jumpForce /= 1.5f;
+        activePowers.Remove("JumpBoost");
     }
 }
