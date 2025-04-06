@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -18,6 +19,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
     private Vector3 moveDirection;
+
+    // -------- Recolección y poderes --------
+    private int treasureCount = 0;
+    private List<string> activePowers = new List<string>();
 
     private void Awake()
     {
@@ -142,5 +147,50 @@ public class PlayerController : MonoBehaviour
         {
             animatorPlayer.SetBool("isJumping", true);
         }
+    }
+
+    // ----------- TESOROS Y PODERES -----------
+
+    public void AddTreasure()
+    {
+        treasureCount++;
+        Debug.Log("Tesoros recolectados: " + treasureCount);
+    }
+
+    public void ActivatePower(string powerName)
+    {
+        if (!activePowers.Contains(powerName))
+        {
+            activePowers.Add(powerName);
+            Debug.Log("¡Poder activado!: " + powerName);
+
+            switch (powerName)
+            {
+                case "SpeedBoost":
+                    //moveForce *= 10f;
+                    runMultiplier *= 10f;
+                    Invoke(nameof(ResetSpeed), 5f);
+                    break;
+
+                case "JumpBoost":
+                    jumpForce *= 50f;
+                    Invoke(nameof(ResetJump), 5f);
+                    break;
+
+                // Aquí puedes agregar más poderes fácilmente
+            }
+        }
+    }
+
+    private void ResetSpeed()
+    {
+        moveForce /= 2f;
+        activePowers.Remove("SpeedBoost");
+    }
+
+    private void ResetJump()
+    {
+        jumpForce /= 1.5f;
+        activePowers.Remove("JumpBoost");
     }
 }
