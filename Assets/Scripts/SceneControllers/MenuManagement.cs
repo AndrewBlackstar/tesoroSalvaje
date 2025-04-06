@@ -10,7 +10,37 @@ public class MenuManagement : MonoBehaviour
 
     public void clicSound()
     {
-        AudioManager.Instance.PlayFX("start");
+        AudioManager.Instance.PlayFX("click");
+    }
+
+    public void playertakedamageSound()
+    {
+        AudioManager.Instance.PlayFX("playergolpe");
+    }
+
+        public void enemytakedamageSound()
+    {
+        AudioManager.Instance.PlayFX("enemygolpe");
+    }
+
+        public void playerwalkSound()
+    {
+        AudioManager.Instance.PlayFX("walk1");
+    }
+
+          public void enemywalkSound()
+    {
+        AudioManager.Instance.PlayFX("walk");
+    }
+
+          public void winSound()
+    {
+        AudioManager.Instance.PlayFX("Win");
+    }
+
+              public void loseound()
+    {
+        AudioManager.Instance.PlayFX("lose");
     }
 
     public void OpenOptions() 

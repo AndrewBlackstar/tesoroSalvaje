@@ -11,18 +11,6 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] public AudioMixer audioMixer;
 
-    // Clips organizados por tipo
-    public AudioClip playerFootstepClip;
-    public AudioClip enemyFootstepClip;
-    public AudioClip hitClip;
-    public AudioClip playerHurtClip; // 🎯 Sonido cuando golpean al jugador
-    public AudioClip enemyHurtClip;  // 🎯 Sonido cuando golpean al enemigo
-    public AudioClip menuClip;
-    public AudioClip winClip;
-    public AudioClip loseClip;
-
-    private Dictionary<string, AudioClip> fxClips;
-
     private void Awake()
     {
         if (Instance == null)
@@ -52,31 +40,19 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogWarning("El mixer de audio no se pudo cargar.");
         }
-
-        // Inicializamos el diccionario
-        fxClips = new Dictionary<string, AudioClip>
-        {
-            { "PlayerFootstep", playerFootstepClip },
-            { "EnemyFootstep", enemyFootstepClip },
-            { "Hit", hitClip },
-            { "PlayerHurt", playerHurtClip },
-            { "EnemyHurt", enemyHurtClip },
-            { "Menu", menuClip },
-            { "Win", winClip },
-            { "Lose", loseClip }
-        };
     }
 
-    // 🔊 Reproduce un efecto según su nombre clave
-    public void PlayFX(string clipKey)
+        public void PlayFX(string clipName)
     {
-        if (fxClips.ContainsKey(clipKey) && fxClips[clipKey] != null)
+        string path = $"Audio/Fx/{clipName}"; // Ruta dentro de la carpeta Resources
+        AudioClip clip = Resources.Load<AudioClip>(path); // Carga el archivo .wav
+        if (clip != null)
         {
-            fxSource.PlayOneShot(fxClips[clipKey]);
+            fxSource.PlayOneShot(clip);
         }
         else
         {
-            Debug.LogWarning($"No se encontró el sonido FX con clave: {clipKey}");
+            Debug.LogWarning($"No se encontró el archivo de audio: {path}");
         }
     }
 
@@ -96,4 +72,5 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning($"No se encontró el archivo de música: {path}");
         }
     }
+
 }
