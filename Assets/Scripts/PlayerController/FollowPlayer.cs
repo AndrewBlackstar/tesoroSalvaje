@@ -3,8 +3,8 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
-    
-    private readonly Vector3 offset = new Vector3(20f, 0f, 33f); // Offset fijo
+
+    private readonly Vector3 offset = new Vector3(20f, 0f, 33f);
     public Vector3 rotationOffset = new Vector3(15, 180, 0);
     public float RotationSpeed = 200.0f;
     public float zoomSpeed = 2.0f;
@@ -22,6 +22,8 @@ public class FollowPlayer : MonoBehaviour
     private float hudTimer = 0f;
     public float hudDisplayTime = 2f;
 
+    private SkinnedMeshRenderer[] playerMeshes; // Para ocultar el modelo en primera persona
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -32,6 +34,9 @@ public class FollowPlayer : MonoBehaviour
         {
             yaw = player.transform.eulerAngles.y;
             pitch = player.transform.eulerAngles.x;
+
+            // Guardar los mesh renderers del jugador
+            playerMeshes = player.GetComponentsInChildren<SkinnedMeshRenderer>();
         }
     }
 
@@ -42,51 +47,52 @@ public class FollowPlayer : MonoBehaviour
             isFirstPerson = !isFirstPerson;
             hudTimer = hudDisplayTime;
 
-            if (player != null)
+            // Ocultar solo el mesh del jugador, no desactivarlo
+            if (playerMeshes != null)
             {
-                player.SetActive(!isFirstPerson);
+                foreach (var mesh in playerMeshes)
+                {
+                    mesh.enabled = !isFirstPerson;
+                }
             }
         }
     }
 
     void LateUpdate()
-{
-    float mouseX = Input.GetAxis("Mouse X") * RotationSpeed * Time.deltaTime;
-    float mouseY = Input.GetAxis("Mouse Y") * RotationSpeed * Time.deltaTime;
-
-    yaw += mouseX;
-    pitch -= mouseY;
-    pitch = Mathf.Clamp(pitch, 30f, 80f);
-
-    if (isFirstPerson)
     {
-        transform.position = player.transform.position + firstPersonOffset;
-        transform.rotation = Quaternion.Euler(pitch, yaw, 0);
+        float mouseX = Input.GetAxis("Mouse X") * RotationSpeed * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * RotationSpeed * Time.deltaTime;
+
+        yaw += mouseX;
+        pitch -= mouseY;
+
+        if (isFirstPerson)
+        {
+            transform.position = player.transform.position + firstPersonOffset;
+            transform.rotation = Quaternion.Euler(pitch, yaw, 0);
+        }
+        else
+        {
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            targetZoom = Mathf.Clamp(targetZoom - scroll * zoomSpeed, minZoom, maxZoom);
+
+            Quaternion rotationOffsetQuat = Quaternion.Euler(rotationOffset);
+            Quaternion targetRotation = Quaternion.Euler(pitch, yaw, 0) * rotationOffsetQuat;
+            Vector3 rotatedOffset = targetRotation * offset.normalized * targetZoom;
+
+            Vector3 focusPoint = player.transform.position + Vector3.up * 1.5f;
+
+            Vector3 desiredPosition = focusPoint + rotatedOffset;
+
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * smoothSpeed);
+            transform.LookAt(focusPoint);
+        }
+
+        if (hudTimer > 0)
+        {
+            hudTimer -= Time.deltaTime;
+        }
     }
-    else
-    {
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        targetZoom = Mathf.Clamp(targetZoom - scroll * zoomSpeed, minZoom, maxZoom);
-        
-        Quaternion rotationOffsetQuat = Quaternion.Euler(rotationOffset);
-        Quaternion targetRotation = Quaternion.Euler(pitch, yaw, 0) * rotationOffsetQuat;
-        Vector3 rotatedOffset = targetRotation * offset.normalized * targetZoom;
-
-        // Ajustar el punto de enfoque (altura de la cabeza)
-        Vector3 focusPoint = player.transform.position + Vector3.up * 1.5f; // 1.5f es la altura del torso/cabeza
-
-        Vector3 desiredPosition = focusPoint + rotatedOffset;
-
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * smoothSpeed);
-        transform.LookAt(focusPoint);
-    }
-
-    if (hudTimer > 0)
-    {
-        hudTimer -= Time.deltaTime;
-    }
-}
-
 
     void OnGUI()
     {
