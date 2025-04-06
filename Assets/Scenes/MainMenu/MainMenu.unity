@@ -268,6 +268,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 76f838c02922e7e40826981361909819, type: 2}
+  footstepClip: {fileID: 0}
+  hitClip: {fileID: 0}
+  hurtClip: {fileID: 0}
+  menuClip: {fileID: 8300000, guid: 786f5ceb4730f85488c58564c54ac61f, type: 3}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!4 &191357762
 Transform:
   m_ObjectHideFlags: 0
