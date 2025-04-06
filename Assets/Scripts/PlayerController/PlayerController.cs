@@ -223,13 +223,13 @@ public class PlayerController : MonoBehaviour
                     //jaguarBottom.gameObject.SetActive(true);
                     mask.gameObject.SetActive(true);
                     runMultiplier *= 10f;
-                    Invoke(nameof(ResetSpeed), 5f);
+                    Invoke(nameof(ResetSpeed), 15f);
                     break;
 
                 case "JumpBoost":
                     //condorBottom.gameObject.SetActive(true);
                     wings.gameObject.SetActive(true);
-                    Invoke(nameof(ResetJump), 5f);
+                    Invoke(nameof(ResetJump), 15f);
                     break;
             }
         }
@@ -247,6 +247,6 @@ public class PlayerController : MonoBehaviour
     {
         activePowers.Remove("JumpBoost");
         condorBottom.gameObject.SetActive(false);
-        wings.gameObject.SetActive(true);
+        wings.gameObject.SetActive(false);
     }
 }
