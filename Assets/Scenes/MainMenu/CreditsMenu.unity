@@ -379,8 +379,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Dise\xF1o | UI"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
-  m_sharedMaterial: {fileID: 5908094503130306525, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
+  m_sharedMaterial: {fileID: -3570430946463230854, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -591,8 +591,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Programador | Storytelling
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
-  m_sharedMaterial: {fileID: 5908094503130306525, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
+  m_sharedMaterial: {fileID: -3570430946463230854, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -803,8 +803,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Programadora | Sonido
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
-  m_sharedMaterial: {fileID: 5908094503130306525, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
+  m_sharedMaterial: {fileID: -3570430946463230854, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1041,8 +1041,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Carolina Ball\xE9n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
-  m_sharedMaterial: {fileID: 5550550216784994456, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
+  m_sharedMaterial: {fileID: -4475161491965140768, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1290,8 +1290,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: UI | Storytelling
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
-  m_sharedMaterial: {fileID: 5908094503130306525, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
+  m_sharedMaterial: {fileID: -3570430946463230854, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1571,8 +1571,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: REFERENCIAS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ee995b87b88a37242b9f6a85d2008539, type: 2}
-  m_sharedMaterial: {fileID: 2142412629641794780, guid: ee995b87b88a37242b9f6a85d2008539, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe95568950290904da1a1f771a79a106, type: 2}
+  m_sharedMaterial: {fileID: -2965572075227670238, guid: fe95568950290904da1a1f771a79a106, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1707,8 +1707,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Oriana G\xF3nzalez"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
-  m_sharedMaterial: {fileID: 5550550216784994456, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
+  m_sharedMaterial: {fileID: -4475161491965140768, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1843,8 +1843,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Modelado 3D | Dise\xF1o escena"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
-  m_sharedMaterial: {fileID: 5908094503130306525, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
+  m_sharedMaterial: {fileID: -3570430946463230854, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2016,8 +2016,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SALIR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
+  m_sharedMaterial: {fileID: -4475161491965140768, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2320,8 +2320,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Andrea Ria\xF1o"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
-  m_sharedMaterial: {fileID: 5550550216784994456, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
+  m_sharedMaterial: {fileID: -4475161491965140768, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2954,8 +2954,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Recursos
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
-  m_sharedMaterial: {fileID: 5550550216784994456, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
+  m_sharedMaterial: {fileID: -4475161491965140768, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3166,8 +3166,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Andres Mu\xF1oz"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
-  m_sharedMaterial: {fileID: 5550550216784994456, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
+  m_sharedMaterial: {fileID: -4475161491965140768, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3302,8 +3302,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sebastian Torres
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
-  m_sharedMaterial: {fileID: 5550550216784994456, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
+  m_sharedMaterial: {fileID: -4475161491965140768, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3868,8 +3868,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
-  m_sharedMaterial: {fileID: 5908094503130306525, guid: b0b80fc1b85b4c942a29522a75e18d48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
+  m_sharedMaterial: {fileID: -3570430946463230854, guid: b95ad59c5fcac0a4a810e4d956bf9a35, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
