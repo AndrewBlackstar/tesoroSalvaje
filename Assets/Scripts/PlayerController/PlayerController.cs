@@ -5,12 +5,22 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movimiento")]
-    public float moveForce = 2f;
+    public float moveForce = 3f;
     public float runMultiplier = 4f;
-    public float rotationSpeed = 10f;
+    public float rotationSpeed = 5f;
 
     [Header("Salto")]
-    public float jumpForce = 200f;
+    public float jumpForce = 5f;
+    public float runJumpVerticalRatio = 0.3f;
+    public float runJumpForwardRatio = 1.5f;
+
+    [Header("Dash Settings")]
+    public float dashSpeed = 30f; // Velocidad lineal del dash
+    public float dashDuration = 0.3f; // Tiempo que dura el impulso del dash
+    public float dashCooldown = 1f; // Tiempo de espera entre dashes
+    public float dashVerticalReduction = 0.2f; // Reducción del movimiento vertical
+    private bool isDashing = false;
+    private bool canDash = true;
 
     [Header("Cámara")]
     public Transform cameraTransform;
@@ -25,7 +35,6 @@ public class PlayerController : MonoBehaviour
     public GameObject jaguarBottom;
     public GameObject condorBottom;
 
-    // -------- Recolección y poderes --------
     private int treasureCount = 0;
     private List<string> activePowers = new List<string>();
 
@@ -60,26 +69,29 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = (forward * moveZ + right * moveX).normalized;
 
-        // Rotación
         if (moveDirection.magnitude > 0.1f)
         {
             Rotation(moveDirection);
         }
 
-        // Saltos
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            if (Input.GetKey(KeyCode.R))
-                RunJump();
-            else
-                NormalJump();
+            NormalJump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && isGrounded && activePowers.Contains("JumpBoost"))
+        {
+            StartDash();
         }
     }
 
     private void FixedUpdate()
     {
         bool runInput = Input.GetKey(KeyCode.R);
-        MoveCharacter(moveDirection, runInput);
+        if (!isDashing) // Solo mover si no estamos en dash
+        {
+            MoveCharacter(moveDirection, runInput);
+        }
     }
 
     private void CheckGroundStatus()
@@ -134,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     private void NormalJump()
     {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * (jumpForce), ForceMode.Impulse);
         isGrounded = false;
 
         if (animatorPlayer != null)
@@ -143,18 +155,45 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void RunJump()
+    private void StartDash()
     {
-        rb.AddForce(Vector3.up * (jumpForce * 1.2f), ForceMode.Impulse);
-        isGrounded = false;
+        if (!canDash) return;
 
-        if (animatorPlayer != null)
-        {
-            animatorPlayer.SetBool("isJumping", true);
-        }
+        isDashing = true;
+        canDash = false;
+        
+        // Calcular dirección del dash (usa input o dirección actual)
+        Vector3 dashDir = (moveDirection.magnitude > 0.1f) ? moveDirection.normalized : transform.forward;
+        
+        // Resetear velocidades existentes
+        rb.linearVelocity = Vector3.zero;
+        
+        // Aplicar fuerza del dash (principalmente horizontal)
+        Vector3 dashForce = new Vector3(
+            dashDir.x * dashSpeed,
+            dashDir.y * dashSpeed * dashVerticalReduction, // Muy poca componente vertical
+            dashDir.z * dashSpeed
+        );
+        
+        rb.AddForce(dashForce, ForceMode.VelocityChange);
+        
+        // Configurar animación
+        animatorPlayer?.SetBool("isJumping", true);
+        
+        // Temporizadores
+        Invoke(nameof(EndDash), dashDuration);
+        Invoke(nameof(ResetDash), dashCooldown);
+    }
+    private void EndDash()
+    {
+        isDashing = false;
+        // No es necesario restaurar gravedad porque no la desactivamos
     }
 
-    // ----------- TESOROS Y PODERES -----------
+    private void ResetDash()
+    {
+        canDash = true;
+    }
 
     public void AddTreasure()
     {
@@ -172,34 +211,28 @@ public class PlayerController : MonoBehaviour
             switch (powerName)
             {
                 case "SpeedBoost":
-                    //moveForce *= 10f;
                     jaguarBottom.gameObject.SetActive(true);
                     runMultiplier *= 10f;
                     Invoke(nameof(ResetSpeed), 5f);
-                    
                     break;
 
                 case "JumpBoost":
-                    condorBottom.gameObject.SetActive(true);
-                    jumpForce *= 50f;
+                    //condorBottom.gameObject.SetActive(true);
                     Invoke(nameof(ResetJump), 5f);
                     break;
-
-                // Aquí puedes agregar más poderes fácilmente
             }
         }
     }
 
     private void ResetSpeed()
     {
-        moveForce /= 2f;
+        runMultiplier /= 10f;
         activePowers.Remove("SpeedBoost");
         jaguarBottom.gameObject.SetActive(false);
     }
 
     private void ResetJump()
     {
-        jumpForce /= 1.5f;
         activePowers.Remove("JumpBoost");
         condorBottom.gameObject.SetActive(false);
     }
