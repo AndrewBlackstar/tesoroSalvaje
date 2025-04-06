@@ -44,7 +44,10 @@ public class PlayerController : MonoBehaviour
     private int treasureCount = 0;
     private List<string> activePowers = new List<string>();
 
-    
+    [Header("Ataque")]
+    public float punchCooldown = 0.5f;
+    private bool canPunch = true;
+    public float PowerPunch = 20f;
 
     private void Awake()
     {
@@ -64,6 +67,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         CheckGroundStatus();
+        HandleAttack();
 
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
@@ -95,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        bool runInput = Input.GetKey(KeyCode.R);
+        bool runInput = Input.GetKey(KeyCode.LeftShift) && activePowers.Contains("SpeedBoost");
         if (!isDashing) // Solo mover si no estamos en dash
         {
             MoveCharacter(moveDirection, runInput);
@@ -186,7 +190,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(dashForce, ForceMode.VelocityChange);
         
         // Configurar animación
-        animatorPlayer?.SetBool("isJumping", true);
+        //animatorPlayer?.SetBool("isJumping", true);
         
         // Temporizadores
         Invoke(nameof(EndDash), dashDuration);
@@ -198,6 +202,34 @@ public class PlayerController : MonoBehaviour
         // No es necesario restaurar gravedad porque no la desactivamos
     }
 
+    private void HandleAttack()
+    {
+        if (Input.GetMouseButtonDown(0) && canPunch && !isDashing && isGrounded)
+        {
+            StartPunch();
+        }
+    }
+    private void StartPunch()
+    {
+        canPunch = false;
+        
+        // Activar el trigger en el Animator
+        if (animatorPlayer != null)
+        {
+            animatorPlayer.SetTrigger("isPunching");
+        }
+        
+        // Temporizador para cooldown
+        Invoke(nameof(ResetPunch), punchCooldown);
+        
+        // Opcional: Lógica de golpe aquí o con Animation Event
+        
+    }
+
+    private void ResetPunch()
+    {
+        canPunch = true;
+    }
     private void ResetDash()
     {
         canDash = true;
@@ -222,7 +254,7 @@ public class PlayerController : MonoBehaviour
                 case "SpeedBoost":
                     //jaguarBottom.gameObject.SetActive(true);
                     mask.gameObject.SetActive(true);
-                    runMultiplier *= 10f;
+                    runMultiplier *= 1f;
                     Invoke(nameof(ResetSpeed), 15f);
                     break;
 
@@ -238,15 +270,15 @@ public class PlayerController : MonoBehaviour
     private void ResetSpeed()
     {
         runMultiplier /= 10f;
+        mask.gameObject.SetActive(false);
         activePowers.Remove("SpeedBoost");
         jaguarBottom.gameObject.SetActive(false);
-        wings.gameObject.SetActive(false);
     }
 
     private void ResetJump()
     {
+        wings.gameObject.SetActive(false);
         activePowers.Remove("JumpBoost");
         condorBottom.gameObject.SetActive(false);
-        wings.gameObject.SetActive(false);
     }
 }
