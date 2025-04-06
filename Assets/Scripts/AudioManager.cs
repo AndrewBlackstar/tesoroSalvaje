@@ -12,9 +12,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioMixer audioMixer;
 
     // Clips organizados por tipo
-    public AudioClip footstepClip;
+    public AudioClip playerFootstepClip;
+    public AudioClip enemyFootstepClip;
     public AudioClip hitClip;
-    public AudioClip hurtClip;
+    public AudioClip playerHurtClip; // 🎯 Sonido cuando golpean al jugador
+    public AudioClip enemyHurtClip;  // 🎯 Sonido cuando golpean al enemigo
     public AudioClip menuClip;
     public AudioClip winClip;
     public AudioClip loseClip;
@@ -54,9 +56,11 @@ public class AudioManager : MonoBehaviour
         // Inicializamos el diccionario
         fxClips = new Dictionary<string, AudioClip>
         {
-            { "Footstep", footstepClip },
+            { "PlayerFootstep", playerFootstepClip },
+            { "EnemyFootstep", enemyFootstepClip },
             { "Hit", hitClip },
-            { "Hurt", hurtClip },
+            { "PlayerHurt", playerHurtClip },
+            { "EnemyHurt", enemyHurtClip },
             { "Menu", menuClip },
             { "Win", winClip },
             { "Lose", loseClip }
@@ -90,14 +94,6 @@ public class AudioManager : MonoBehaviour
         else
         {
             Debug.LogWarning($"No se encontró el archivo de música: {path}");
-        }
-    }
-
-    public void StopMusic()
-    {
-        if (musicSource.isPlaying)
-        {
-            musicSource.Stop();
         }
     }
 }

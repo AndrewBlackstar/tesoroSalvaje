@@ -267,13 +267,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f60fc55fba43041b05a33fd33cf922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 76f838c02922e7e40826981361909819, type: 2}
-  footstepClip: {fileID: 0}
-  hitClip: {fileID: 0}
-  hurtClip: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 65ea91becf2221341822e40bf69cba27, type: 2}
+  playerFootstepClip: {fileID: 8300000, guid: 1295a5b7700702049bb70222455945ef, type: 3}
+  enemyFootstepClip: {fileID: 8300000, guid: 5e497cf1b46dfd94bae5f5857e5afabd, type: 3}
+  hitClip: {fileID: 8300000, guid: 796f78125a47214489b771f0b7247b9a, type: 3}
+  playerHurtClip: {fileID: 8300000, guid: 853b76178a1d21446a46c21be33cf041, type: 3}
+  enemyHurtClip: {fileID: 8300000, guid: 4657b76b93853f04ca48d2e27b89c934, type: 3}
   menuClip: {fileID: 8300000, guid: 786f5ceb4730f85488c58564c54ac61f, type: 3}
-  winClip: {fileID: 0}
-  loseClip: {fileID: 0}
+  winClip: {fileID: 8300000, guid: 9c82cedf0ac4dfb44b92bcff66077d6d, type: 3}
+  loseClip: {fileID: 8300000, guid: 6a519e26292938042a25da23405c2f76, type: 3}
 --- !u!4 &191357762
 Transform:
   m_ObjectHideFlags: 0
