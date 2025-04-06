@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GANASTE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ee995b87b88a37242b9f6a85d2008539, type: 2}
-  m_sharedMaterial: {fileID: 2142412629641794780, guid: ee995b87b88a37242b9f6a85d2008539, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe95568950290904da1a1f771a79a106, type: 2}
+  m_sharedMaterial: {fileID: -2965572075227670238, guid: fe95568950290904da1a1f771a79a106, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -968,8 +968,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Los esp\xEDritus de la selva celebran tu victoria!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
-  m_sharedMaterial: {fileID: 5550550216784994456, guid: c093d98fe68d9274aaf0387f349aeab9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
+  m_sharedMaterial: {fileID: -4475161491965140768, guid: 027625e3faca35b4f8b0df2f4fd3d1d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
