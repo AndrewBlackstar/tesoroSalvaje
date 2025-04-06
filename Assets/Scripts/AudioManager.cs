@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +10,18 @@ public class AudioManager : MonoBehaviour
     private AudioSource musicSource;
 
     [SerializeField] public AudioMixer audioMixer;
+
+    // Clips organizados por tipo
+    public AudioClip playerFootstepClip;
+    public AudioClip enemyFootstepClip;
+    public AudioClip hitClip;
+    public AudioClip playerHurtClip; // ðŸŽ¯ Sonido cuando golpean al jugador
+    public AudioClip enemyHurtClip;  // ðŸŽ¯ Sonido cuando golpean al enemigo
+    public AudioClip menuClip;
+    public AudioClip winClip;
+    public AudioClip loseClip;
+
+    private Dictionary<string, AudioClip> fxClips;
 
     private void Awake()
     {
@@ -20,52 +33,58 @@ public class AudioManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+            return;
         }
 
         // Inicializa las fuentes de audio
         fxSource = gameObject.AddComponent<AudioSource>();
         musicSource = gameObject.AddComponent<AudioSource>();
-        // Inicializamos el Mixer
+
+        // Cargar el Mixer
         audioMixer = Resources.Load<AudioMixer>("AudioMaster");
 
-        // Asignamos canales al audioMixer
         if (audioMixer != null)
         {
-            // Asigna el canal "Fx" al fxSource
             fxSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Fx")[0];
-
-            // Asigna el canal "Music" al musicSource
             musicSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Music")[0];
-            
-            // Asigna el canal "General" al musicSource
-            //musicSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Master")[0];
         }
         else
         {
             Debug.LogWarning("El mixer de audio no se pudo cargar.");
         }
+
+        // Inicializamos el diccionario
+        fxClips = new Dictionary<string, AudioClip>
+        {
+            { "PlayerFootstep", playerFootstepClip },
+            { "EnemyFootstep", enemyFootstepClip },
+            { "Hit", hitClip },
+            { "PlayerHurt", playerHurtClip },
+            { "EnemyHurt", enemyHurtClip },
+            { "Menu", menuClip },
+            { "Win", winClip },
+            { "Lose", loseClip }
+        };
     }
 
-    // Método para reproducir efectos de sonido
-    public void PlayFX(string clipName)
+    // ðŸ”Š Reproduce un efecto segÃºn su nombre clave
+    public void PlayFX(string clipKey)
     {
-        string path = $"Audio/Fx/{clipName}"; // Ruta dentro de la carpeta Resources
-        AudioClip clip = Resources.Load<AudioClip>(path); // Carga el archivo .wav
-        if (clip != null)
+        if (fxClips.ContainsKey(clipKey) && fxClips[clipKey] != null)
         {
-            fxSource.PlayOneShot(clip);
+            fxSource.PlayOneShot(fxClips[clipKey]);
         }
         else
         {
-            Debug.LogWarning($"No se encontró el archivo de audio: {path}");
+            Debug.LogWarning($"No se encontrÃ³ el sonido FX con clave: {clipKey}");
         }
     }
-    
-    // Método para reproducir música
+
+    // ðŸŽµ Reproduce mÃºsica
     public void PlayMusic(string clipName, bool loop = true)
     {
-        string path = $"Audio/Music/{clipName}"; // Ruta dentro de la carpeta Resources
-        AudioClip clip = Resources.Load<AudioClip>(path); // Carga el archivo .wav
+        string path = $"Audio/Music/{clipName}";
+        AudioClip clip = Resources.Load<AudioClip>(path);
         if (clip != null)
         {
             musicSource.clip = clip;
@@ -74,18 +93,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"No se encontró el archivo de audio: {path}");
+            Debug.LogWarning($"No se encontrÃ³ el archivo de mÃºsica: {path}");
         }
     }
-
-    // Método para detener la música
-    public void StopMusic()
-    {
-        if (musicSource.isPlaying)
-        {
-            musicSource.Stop();
-        }
-    }
-
-
 }
