@@ -544,6 +544,67 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_RespectSceneVisibilityWhenBakingGI: 0
+--- !u!1 &1239988219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3880661176395152329, guid: 09f2d9235ba3879458a8560cab9bdc70, type: 3}
+  m_PrefabInstance: {fileID: 1426466238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1239988223
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239988219}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a61b60ffb43586e40adaba8c9f15351a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 2840823874903811969, guid: 311507a7bf82073468d45fc5b4f37bbf, type: 3}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: -0.000000014901161, y: 0.06486504, z: 0.003974661}
+    m_Extent: {x: 0.25899357, y: 0.054442547, z: 0.13154161}
+  m_DirtyAABB: 0
 --- !u!1 &1248175502
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +763,7 @@ MonoBehaviour:
   maxZoom: 4
   smoothSpeed: 5
   zoomSmoothSpeed: 10
-  firstPersonOffset: {x: 0, y: 1.8, z: 0}
+  firstPersonOffset: {x: 0, y: 1.5, z: 0}
   hudDisplayTime: 2
 --- !u!4 &1278762657 stripped
 Transform:
@@ -1114,10 +1175,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5444358447742650226, guid: 09f2d9235ba3879458a8560cab9bdc70, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3880661176395152329, guid: 09f2d9235ba3879458a8560cab9bdc70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1239988223}
   m_SourcePrefab: {fileID: 100100000, guid: 09f2d9235ba3879458a8560cab9bdc70, type: 3}
 --- !u!1 &1824587296
 GameObject:
