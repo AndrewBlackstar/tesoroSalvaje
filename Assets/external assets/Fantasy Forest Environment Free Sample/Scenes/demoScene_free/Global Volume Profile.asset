@@ -157,13 +157,13 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.79
+    m_Value: 0.49
   intensity:
     m_OverrideState: 1
-    m_Value: 5.65
+    m_Value: 10.43
   scatter:
     m_OverrideState: 1
-    m_Value: 0.255
+    m_Value: 0.288
   clamp:
     m_OverrideState: 0
     m_Value: 65465.5
@@ -226,28 +226,28 @@ MonoBehaviour:
   active: 1
   redOutRedIn:
     m_OverrideState: 1
-    m_Value: 94
+    m_Value: 102
   redOutGreenIn:
     m_OverrideState: 1
-    m_Value: 12
+    m_Value: -9
   redOutBlueIn:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 14
   greenOutRedIn:
     m_OverrideState: 1
-    m_Value: -12
+    m_Value: -10
   greenOutGreenIn:
     m_OverrideState: 1
-    m_Value: 120
+    m_Value: 114
   greenOutBlueIn:
     m_OverrideState: 0
     m_Value: -4
   blueOutRedIn:
     m_OverrideState: 1
-    m_Value: -53
+    m_Value: 2
   blueOutGreenIn:
     m_OverrideState: 0
     m_Value: 0
   blueOutBlueIn:
     m_OverrideState: 1
-    m_Value: 104
+    m_Value: 124
