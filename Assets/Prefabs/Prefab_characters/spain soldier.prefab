@@ -2096,6 +2096,7 @@ GameObject:
   - component: {fileID: 3551409929932132834}
   - component: {fileID: 955551693182662815}
   - component: {fileID: 4375723905319374465}
+  - component: {fileID: 4270497489787398055}
   m_Layer: 0
   m_Name: spain soldier
   m_TagString: Untagged
@@ -2135,7 +2136,7 @@ Animator:
   m_GameObject: {fileID: 4108288440037306616}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2255221d850daf642981c1a4eedf85a1, type: 3}
-  m_Controller: {fileID: 9100000, guid: ef6403663453e6a4cb106814a81e72b4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5bfd772a56bf93a4b85e373ccd3afa66, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2170,9 +2171,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &4375723905319374465
 CapsuleCollider:
@@ -2191,12 +2192,32 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.24589236
   m_Height: 1.8278311
   m_Direction: 1
   m_Center: {x: -0.0059094876, y: 0.90637225, z: 0}
+--- !u!114 &4270497489787398055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108288440037306616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fc655fd33242d40a0ecbdd22177eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolSpeed: 2
+  chaseSpeed: 4
+  patrolDistance: 5
+  chaseRange: 10
+  attackRange: 1.5
+  attackCooldown: 2
+  damage: 10
+  player: {fileID: 0}
 --- !u!1 &4110607461563185698
 GameObject:
   m_ObjectHideFlags: 0
