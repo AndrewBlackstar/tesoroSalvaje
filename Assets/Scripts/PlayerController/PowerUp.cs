@@ -3,7 +3,7 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public string powerName; // Ej: "SpeedBoost", "JumpBoost"
-
+    
     private void OnTriggerEnter(Collider other)
     {
         PlayerController player = other.GetComponent<PlayerController>();
