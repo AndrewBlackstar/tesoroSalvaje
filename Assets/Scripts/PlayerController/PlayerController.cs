@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     private void NormalJump()
     {
-        rb.AddForce(Vector3.up * (jumpForce), ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         isGrounded = false;
 
         if (animatorPlayer != null)
