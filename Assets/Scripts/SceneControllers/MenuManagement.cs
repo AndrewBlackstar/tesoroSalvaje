@@ -5,7 +5,7 @@ public class MenuManagement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        AudioManager.Instance.PlayMusic("Chunky_Monkey");  
+        AudioManager.Instance.PlayMusic("Menu");  
     }
 
     public void clicSound()
@@ -22,7 +22,7 @@ public class MenuManagement : MonoBehaviour
     {
         if (AudioManager.Instance.audioMixer != null)
         {
-            // Convierte el valor lineal del slider a logarítmico para el AudioMixer
+            // Convierte el valor lineal del slider a logarï¿½tmico para el AudioMixer
             AudioManager.Instance.audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
             PlayerPrefs.SetFloat("MusicVolume", volume); // Guarda el valor
         }
@@ -32,7 +32,7 @@ public class MenuManagement : MonoBehaviour
     {
         if (AudioManager.Instance.audioMixer != null)
         {
-            // Convierte el valor lineal del slider a logarítmico para el AudioMixer
+            // Convierte el valor lineal del slider a logarï¿½tmico para el AudioMixer
             AudioManager.Instance.audioMixer.SetFloat("Fx", Mathf.Log10(volume) * 20);
             PlayerPrefs.SetFloat("FxVolume", volume); // Guarda el valor
         }
@@ -42,7 +42,7 @@ public class MenuManagement : MonoBehaviour
     {
         if (AudioManager.Instance.audioMixer != null)
         {
-            // Convierte el valor lineal del slider a logarítmico para el AudioMixer
+            // Convierte el valor lineal del slider a logarï¿½tmico para el AudioMixer
             AudioManager.Instance.audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
             PlayerPrefs.SetFloat("GeneralVolume", volume); // Guarda el valor
         }
