@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
     public float dashVerticalReduction = 0.2f; // Reducción del movimiento vertical
     private bool isDashing = false;
     private bool canDash = true;
+    
+    [Header("Alas y Mascara")]
+    public GameObject mask;
+    public GameObject wings;
 
     [Header("Cámara")]
     public Transform cameraTransform;
@@ -34,9 +38,13 @@ public class PlayerController : MonoBehaviour
     [Header("UIbottoms")]
     public GameObject jaguarBottom;
     public GameObject condorBottom;
-
+    public PlayerUIBars uiBars; // Asignás esto en el Inspector
+    
+    [Header("PowerUps")]
     private int treasureCount = 0;
     private List<string> activePowers = new List<string>();
+
+    
 
     private void Awake()
     {
@@ -201,6 +209,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Tesoros recolectados: " + treasureCount);
     }
 
+     // ----------- TESOROS Y PODERES -----------
     public void ActivatePower(string powerName)
     {
         if (!activePowers.Contains(powerName))
@@ -211,13 +220,15 @@ public class PlayerController : MonoBehaviour
             switch (powerName)
             {
                 case "SpeedBoost":
-                    jaguarBottom.gameObject.SetActive(true);
+                    //jaguarBottom.gameObject.SetActive(true);
+                    mask.gameObject.SetActive(true);
                     runMultiplier *= 10f;
                     Invoke(nameof(ResetSpeed), 5f);
                     break;
 
                 case "JumpBoost":
                     //condorBottom.gameObject.SetActive(true);
+                    wings.gameObject.SetActive(true);
                     Invoke(nameof(ResetJump), 5f);
                     break;
             }
@@ -229,11 +240,13 @@ public class PlayerController : MonoBehaviour
         runMultiplier /= 10f;
         activePowers.Remove("SpeedBoost");
         jaguarBottom.gameObject.SetActive(false);
+        wings.gameObject.SetActive(false);
     }
 
     private void ResetJump()
     {
         activePowers.Remove("JumpBoost");
         condorBottom.gameObject.SetActive(false);
+        wings.gameObject.SetActive(true);
     }
 }
