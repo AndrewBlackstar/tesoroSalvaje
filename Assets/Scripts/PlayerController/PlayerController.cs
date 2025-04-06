@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
     private Vector3 moveDirection;
+
+    [Header("UIbottoms")]
+    public GameObject jaguarBottom;
+    public GameObject condorBottom;
 
     // -------- Recolección y poderes --------
     private int treasureCount = 0;
@@ -168,11 +173,14 @@ public class PlayerController : MonoBehaviour
             {
                 case "SpeedBoost":
                     //moveForce *= 10f;
+                    jaguarBottom.gameObject.SetActive(true);
                     runMultiplier *= 10f;
                     Invoke(nameof(ResetSpeed), 5f);
+                    
                     break;
 
                 case "JumpBoost":
+                    condorBottom.gameObject.SetActive(true);
                     jumpForce *= 50f;
                     Invoke(nameof(ResetJump), 5f);
                     break;
@@ -186,11 +194,13 @@ public class PlayerController : MonoBehaviour
     {
         moveForce /= 2f;
         activePowers.Remove("SpeedBoost");
+        jaguarBottom.gameObject.SetActive(false);
     }
 
     private void ResetJump()
     {
         jumpForce /= 1.5f;
         activePowers.Remove("JumpBoost");
+        condorBottom.gameObject.SetActive(false);
     }
 }
