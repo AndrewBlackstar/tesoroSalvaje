@@ -970,6 +970,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2747734716686307653, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3057789617376995520, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1058,6 +1062,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5168307826831406463, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168307826831406463, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168307826831406463, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5345807375756847015, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1114,6 +1130,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 6976242232918335948, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976242232918335948, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976242232918335948, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7147367598811867737, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
       propertyPath: m_Name
       value: UIGameplay
@@ -1131,6 +1159,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8487913819947230921, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661400181683952183, guid: 48e0346bfbfbdbb48aea67fc833cee6d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
