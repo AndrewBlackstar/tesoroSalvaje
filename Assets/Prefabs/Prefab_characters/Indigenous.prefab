@@ -217,8 +217,8 @@ Transform:
   m_GameObject: {fileID: 3807277812152411993}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1328213, y: -0, z: -0, w: 0.99114}
-  m_LocalPosition: {x: 0, y: 0.14416397, z: -0.056}
-  m_LocalScale: {x: 0.8, y: 0.79999995, z: 0.79999995}
+  m_LocalPosition: {x: 0, y: 0.83, z: -0.165}
+  m_LocalScale: {x: 0.37899202, y: 0.378992, z: 0.378992}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4350213404154300819}
@@ -500,6 +500,8 @@ MonoBehaviour:
   rotationSpeed: 10
   jumpForce: 10
   cameraTransform: {fileID: 0}
+  jaguarBottom: {fileID: 0}
+  condorBottom: {fileID: 0}
 --- !u!1 &7822490104806413149
 GameObject:
   m_ObjectHideFlags: 0
